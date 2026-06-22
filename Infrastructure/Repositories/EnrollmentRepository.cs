@@ -5,59 +5,52 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-public class EnrollmentRepository : IEnrollmentRepository
+public class EnrollmentRepository(AppDbContext context) : IEnrollmentRepository
 {
-    private readonly AppDbContext _context;
- 
-    public EnrollmentRepository(AppDbContext context)
+    public async Task<List<Enrollment>> GetByStudentIdAsync(int studentId)
     {
-        _context = context;
-    }
- 
-    public IQueryable<Enrollment> GetAll()
-    {
-        return _context.Enrollments.AsQueryable();
-    }
- 
-    public async Task<Enrollment?> GetByIdAsync(int id)
-    {
-        return await _context.Enrollments.FindAsync(id);
-    }
- 
-    public async Task<Enrollment?> GetByStudentAndCourseAsync(string studentId, int courseId)
-    {
-        return await _context.Enrollments
-            .FirstOrDefaultAsync(e => e.StudentId == studentId && e.CourseId == courseId);
-    }
- 
-    public async Task<List<Enrollment>> GetByStudentIdAsync(string studentId)
-    {
-        return await _context.Enrollments
+        return await context.Enrollments
             .Where(e => e.StudentId == studentId)
             .ToListAsync();
     }
- 
-    public async Task<bool> IsEnrolledAsync(string studentId, int courseId)
+
+    public async Task<Enrollment?> GetByIdAsync(int id)
     {
-        return await _context.Enrollments
-            .AnyAsync(e => e.StudentId == studentId && e.CourseId == courseId);
+        return await context.Enrollments.FindAsync(id);
     }
- 
-    public async Task AddAsync(Enrollment enrollment)
+
+    public async Task<Enrollment?> GetByStudentAndCourseAsync(int studentId, int courseId)
     {
-        await _context.Enrollments.AddAsync(enrollment);
-        await _context.SaveChangesAsync();
+        return await context.Enrollments
+            .FirstOrDefaultAsync(e => e.StudentId == studentId && e.CourseId == courseId);
     }
- 
-    public async Task UpdateAsync(Enrollment enrollment)
+
+    public async Task<Enrollment> CreateAsync(Enrollment enrollment)
     {
-        _context.Enrollments.Update(enrollment);
-        await _context.SaveChangesAsync();
+        context.Enrollments.Add(enrollment);
+        await context.SaveChangesAsync();
+        return enrollment;
     }
- 
-    public async Task DeleteAsync(Enrollment enrollment)
+
+    public async Task<Enrollment> UpdateAsync(Enrollment enrollment)
     {
-        _context.Enrollments.Remove(enrollment);
-        await _context.SaveChangesAsync();
+        context.Enrollments.Update(enrollment);
+        await context.SaveChangesAsync();
+        return enrollment;
+    }
+
+    public async Task<List<TopEnrollment>> GetTopCoursesAsync(int count)
+    {
+        return await context.Enrollments
+            .GroupBy(e => new { e.CourseId, e.Course.Title })
+            .Select(g => new TopEnrollment
+            {
+                CourseId = g.Key.CourseId,
+                Title = g.Key.Title,
+                EnrollmentsCount = g.Count()
+            })
+            .OrderByDescending(x => x.EnrollmentsCount)
+            .Take(count)
+            .ToListAsync();
     }
 }

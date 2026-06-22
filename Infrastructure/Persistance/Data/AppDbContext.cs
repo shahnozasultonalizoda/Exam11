@@ -1,22 +1,20 @@
 using Domain.Entities;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data;
 
-public class AppDbContext : IdentityDbContext<ApplicationUser>
+public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public AppDbContext(DbContextOptions options) : base(options) {}
+   public DbSet<Student> Students { get; set; }
+   public DbSet<Lesson> Lessons {get; set;}
+   public DbSet<Course> Courses { get; set; }
+   public DbSet<Enrollment> Enrollments {get; set;}
+   public DbSet<Review> Reviews { get; set; }
+   public DbSet<Category> Categories {get; set;}
+   public DbSet<User> Users { get; set; }
 
-    public DbSet<Course> Courses => Set<Course>();
-    public DbSet<Lesson> Lessons => Set<Lesson>();
-    public DbSet<Category> Categories => Set<Category>();
-    public DbSet<Enrollment> Enrollments => Set<Enrollment>();
-    public DbSet<Review> Reviews => Set<Review>();
- 
-    protected override void OnModelCreating(ModelBuilder builder)
+   protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(builder);
-        builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 }

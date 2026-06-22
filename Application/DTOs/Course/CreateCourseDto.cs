@@ -13,5 +13,5 @@ public class CreateCourseDto
     public decimal Price { get; set; }
     public CourseLevel Level { get; set; }
     [Required] 
-    public int CategoryId { get; set; }
+    public int CategoryId { get; set; } 
 }

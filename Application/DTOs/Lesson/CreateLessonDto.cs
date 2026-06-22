@@ -8,8 +8,6 @@ public class CreateLessonDto
     public string Title { get; set; } = null!;
     [Required] 
     public string Content { get; set; } = null!;
-    public string? VideoUrl { get; set; }
-    public int OrderIndex { get; set; }
-    [Range(0, 600)] 
-    public int DurationMinutes { get; set; }
+    public int Order { get; set; }
+    public int CourseId { get; set; }
 }

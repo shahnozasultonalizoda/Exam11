@@ -23,7 +23,7 @@ public class Result<T>
     }
 
     public static Result<T> Ok(T? data) => new (data);
-    public static Result<T> Fail(string error, ErrorType errorType = Results.ErrorType.Unknown) => new Result<T>(error, errorType);
+    public static Result<T> Fail(string error, ErrorType errorType = Results.ErrorType.Unknown) => new (error, errorType);
 
 
 }

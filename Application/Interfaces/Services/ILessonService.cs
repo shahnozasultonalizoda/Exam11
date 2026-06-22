@@ -5,9 +5,9 @@ namespace Application.Interfaces.Services;
 
 public interface ILessonService
 {
-    Task<Result<List<LessonDto>>> GetByCourseIdAsync(int courseId, string currentUserId, bool isAdmin);
-    Task<Result<LessonDto>> GetByIdAsync(int courseId, int lessonId, string currentUserId, bool isAdmin);
-    Task<Result<LessonDto>> CreateAsync(int courseId, CreateLessonDto dto, string currentUserId);
-    Task<Result<LessonDto>> UpdateAsync(int courseId, int lessonId, UpdateLessonDto dto, string currentUserId, bool isAdmin);
-    Task<Result<bool>> DeleteAsync(int courseId, int lessonId, string currentUserId, bool isAdmin);
+    Task<Result<List<GetLessonDto>>> GetByCourseIdAsync(int courseId);
+    Task<Result<GetLessonDto>> GetByIdAsync(int id);
+    Task<Result<GetLessonDto>> CreateAsync(CreateLessonDto dto, int instructorId);
+    Task<Result<GetLessonDto>> UpdateAsync(int id, UpdateLessonDto dto, int instructorId);
+    Task<Result<bool>> DeleteAsync(int id, int instructorId);
 }

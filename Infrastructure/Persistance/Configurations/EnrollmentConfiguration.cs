@@ -2,9 +2,7 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-
 namespace Infrastructure.Persistance.Configurations;
-
 
 public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
 {
@@ -15,14 +13,12 @@ public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
         builder.Property(e => e.ProgressPercent)
             .HasDefaultValue(0);
 
-        // Один студент — один курс (уникальная пара)
         builder.HasIndex(e => new { e.StudentId, e.CourseId })
             .IsUnique();
 
         builder.HasOne(e => e.Student)
-            .WithMany(u => u.Enrollments)
+            .WithMany(s => s.Enrollments)
             .HasForeignKey(e => e.StudentId)
             .OnDelete(DeleteBehavior.Restrict);
     }
 }
-

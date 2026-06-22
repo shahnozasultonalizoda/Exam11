@@ -1,53 +1,38 @@
 using Application.Interfaces.Repositories;
 using Domain.Entities;
 using Infrastructure.Data;
+using Infrastructure.Persistance.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-public class CourseRepository : ICourseRepository
+public class CourseRepository(AppDbContext context) : ICourseRepository
 {
-    private readonly AppDbContext _context;
- 
-    public CourseRepository(AppDbContext context)
+    public async Task<IQueryable<Course>> GetAll()
     {
-        _context = context;
+        return context.Courses.AsQueryable();
     }
- 
-    public IQueryable<Course> GetAll()
-    {
-        return _context.Courses.AsQueryable();
-    }
- 
+
     public async Task<Course?> GetByIdAsync(int id)
     {
-        return await _context.Courses.FindAsync(id);
+        return await context.Courses.FindAsync(id);
     }
- 
-    public async Task<Course?> GetByIdWithDetailsAsync(int id)
+
+    public async Task<int> CreateAsync(Course course)
     {
-        return await _context.Courses.FindAsync(id);
+        context.Courses.Add(course);
+        return await context.SaveChangesAsync();
     }
- 
-    public async Task AddAsync(Course course)
+
+    public async Task<int> UpdateAsync(Course course)
     {
-        await _context.Courses.AddAsync(course);
-        await _context.SaveChangesAsync();
+        context.Courses.Update(course);
+        return await context.SaveChangesAsync();
     }
- 
-    public async Task UpdateAsync(Course course)
+
+    public async Task<int> DeleteAsync(Course course)
     {
-        _context.Courses.Update(course);
-        await _context.SaveChangesAsync();
-    }
- 
-    public async Task DeleteAsync(Course course)
-    {
-        _context.Courses.Remove(course);
-        await _context.SaveChangesAsync();
-    }
- 
-    public async Task<bool> ExistsAsync(int id)
-    {
-        return await _context.Courses.FindAsync(id) is not null;
+        context.Courses.Remove(course);
+        return await context.SaveChangesAsync();
     }
 }

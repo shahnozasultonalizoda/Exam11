@@ -1,6 +1,4 @@
-using Domain.Entities;
 
-namespace Aplication.Results;
 public class PagedResult<T>
 {
     public IReadOnlyList<T> Items { get; }
