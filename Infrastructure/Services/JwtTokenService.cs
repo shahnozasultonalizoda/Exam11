@@ -13,16 +13,17 @@ public class JwtTokenService(IConfiguration configuration) : IJwtTokenService
     public async Task<string> GenerateToken(User user)
     {
         var claims = new List<Claim>
-        {
-            new(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new(ClaimTypes.Email, user.Email),
-            new(ClaimTypes.Role, user.Role.ToString())
-        };
+{
+    new(ClaimTypes.NameIdentifier, user.Id.ToString()),
+    new(ClaimTypes.Email, user.Email),
+    new(ClaimTypes.Role, user.Role.ToString())  // замени
+};
 
         var key = new SymmetricSecurityKey(
-            Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
+    Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!));
+key.KeyId = "onlinecourses-key"; // ДОБАВЬ
 
-        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var tokenDescriptor = new SecurityTokenDescriptor
         {

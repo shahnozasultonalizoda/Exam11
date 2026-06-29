@@ -1,0 +1,83 @@
+@model List<MvcApp.Models.EnrollmentViewModel>
+@{
+    ViewData["Title"] = "Enrollments";
+}
+
+<div class="form-card mb-4">
+    <form method="get" class="row g-3 align-items-end">
+        <div class="col-md-5">
+            <label class="form-label fw-semibold small">Filter by Student</label>
+            <select name="studentId" class="form-select" asp-items="ViewBag.Students">
+                <option value="">-- Select a student --</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary"><i class="bi bi-search me-1"></i>Load</button>
+        </div>
+    </form>
+</div>
+
+<div class="table-card">
+    <div class="table-header">
+        <h6><i class="bi bi-journal-check me-2" style="color:#4f46e5"></i>Enrollments (@Model.Count)</h6>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Course</th>
+                    <th>Student</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th class="pe-4">Enrolled At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="ps-4 fw-semibold">@item.CourseTitle</td>
+                            <td>@item.StudentName</td>
+                            <td style="min-width:130px">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="progress flex-grow-1">
+                                        <div class="progress-bar" style="width:@item.ProgressPercent%;background:#4f46e5"></div>
+                                    </div>
+                                    <span class="small text-muted">@item.ProgressPercent%</span>
+                                </div>
+                            </td>
+                            <td>
+                                @{
+                                    var statusStyle = item.Status switch
+                                    {
+                                        "Active" => "background:#dcfce7;color:#16a34a",
+                                        "Completed" => "background:#ede9fe;color:#7c3aed",
+                                        _ => "background:#fee2e2;color:#dc2626"
+                                    };
+                                }
+                                <span class="badge" style="@statusStyle">@item.Status</span>
+                            </td>
+                            <td class="pe-4 text-muted small">@item.EnrolledAt.ToString("MMM dd, yyyy")</td>
+                        </tr>
+                    }
+                }
+                else if (ViewBag.SelectedStudentId != null)
+                {
+                    <tr><td colspan="5" class="text-center text-muted py-5">
+                        <i class="bi bi-inbox" style="font-size:2rem;display:block;margin-bottom:8px"></i>
+                        No enrollments found
+                    </td></tr>
+                }
+                else
+                {
+                    <tr><td colspan="5" class="text-center text-muted py-5">
+                        <i class="bi bi-arrow-up-circle" style="font-size:2rem;display:block;margin-bottom:8px"></i>
+                        Select a student to view their enrollments
+                    </td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

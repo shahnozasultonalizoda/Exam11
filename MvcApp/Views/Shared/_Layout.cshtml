@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Online Courses Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <h4><i class="bi bi-mortarboard-fill me-2" style="color:#818cf8"></i>OnlineCourses</h4>
+            <small>Admin Panel</small>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-label">Main</div>
+            @await Html.PartialAsync("_Sidebar")
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">@(Context.Session.GetString("FullName")?[0].ToString().ToUpper() ?? "A")</div>
+                <div>
+                    <div class="user-name">@Context.Session.GetString("FullName")</div>
+                    <div class="user-role">@Context.Session.GetString("Role")</div>
+                </div>
+            </div>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <button type="submit" class="btn btn-sm w-100" style="background:#1f2937;color:#9ca3af;border:none">
+                    <i class="bi bi-box-arrow-left me-1"></i> Logout
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="topbar">
+            <div class="topbar-title">
+                <h5>@ViewData["Title"]</h5>
+                <small>@ViewData["PageDescription"]</small>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <span class="badge" style="background:#ede9fe;color:#7c3aed;padding:6px 12px;border-radius:8px">
+                    <i class="bi bi-shield-check me-1"></i> Admin
+                </span>
+            </div>
+        </div>
+
+        <div class="page-content">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show d-flex align-items-center gap-2" role="alert">
+                    <i class="bi bi-check-circle-fill"></i>
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center gap-2" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                    @TempData["Error"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
+
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

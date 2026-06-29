@@ -1,0 +1,802 @@
+2026-06-28 18:26:27.901 +05:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-06-28 18:26:28.136 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-06-28 18:26:28.209 +05:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
+    "MigrationId" character varying(150) NOT NULL,
+    "ProductVersion" character varying(32) NOT NULL,
+    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
+2026-06-28 18:26:28.220 +05:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2026-06-28 18:26:28.223 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+LOCK TABLE "__EFMigrationsHistory" IN ACCESS EXCLUSIVE MODE
+2026-06-28 18:26:28.226 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "MigrationId", "ProductVersion"
+FROM "__EFMigrationsHistory"
+ORDER BY "MigrationId";
+2026-06-28 18:26:28.236 +05:00 [INF] Applying migration '20260628132615_AddPhoneIsActive'.
+2026-06-28 18:26:28.316 +05:00 [INF] Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Users" ADD "IsActive" boolean NOT NULL DEFAULT FALSE;
+2026-06-28 18:26:28.319 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE "Users" ADD "PhoneNumber" text;
+2026-06-28 18:26:28.323 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20260628132615_AddPhoneIsActive', '10.0.9');
+2026-06-28 21:50:19.525 +05:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 21:50:19.709 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 21:50:19.806 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 21:50:19.809 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 21:50:19.810 +05:00 [INF] Hosting environment: Development
+2026-06-28 21:50:19.810 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 21:50:39.078 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/ - null null
+2026-06-28 21:50:39.155 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 21:50:39.241 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/ - 404 0 null 166.7252ms
+2026-06-28 21:50:39.249 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5052/, Response status code: 404
+2026-06-28 21:50:44.880 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger - null null
+2026-06-28 21:50:44.892 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger - 301 0 null 12.1414ms
+2026-06-28 21:50:44.906 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 21:50:45.008 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 200 null text/html;charset=utf-8 101.9733ms
+2026-06-28 21:50:45.041 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 21:50:45.042 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 21:50:45.043 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 21:50:45.045 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 21:50:45.046 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 21:50:45.060 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 14.959ms
+2026-06-28 21:50:45.066 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 24.8661ms
+2026-06-28 21:50:45.066 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 24.4111ms
+2026-06-28 21:50:45.122 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 78.2676ms
+2026-06-28 21:50:45.125 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 79.2469ms
+2026-06-28 21:50:45.374 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 21:50:45.598 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 224.2446ms
+2026-06-28 21:51:25.085 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 59
+2026-06-28 21:51:25.129 +05:00 [INF] CORS policy execution failed.
+2026-06-28 21:51:25.131 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 21:51:25.135 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:51:25.179 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 21:51:25.490 +05:00 [INF] Executed DbCommand (28ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 21:51:26.349 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-28 21:51:26.359 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1171.3994ms
+2026-06-28 21:51:26.362 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:51:26.370 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 401 null text/plain; charset=utf-8 1285.4753ms
+2026-06-28 21:58:00.768 +05:00 [INF] Application is shutting down...
+2026-06-28 21:58:17.515 +05:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 21:58:18.282 +05:00 [INF] Executed DbCommand (41ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("CreatedAt", "Email", "FullName", "IsActive", "PasswordHash", "PhoneNumber", "ResetPasswordToken", "ResetPasswordTokenExpiry", "Role")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id";
+2026-06-28 21:58:18.432 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 21:58:18.534 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 21:58:18.537 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 21:58:18.538 +05:00 [INF] Hosting environment: Development
+2026-06-28 21:58:18.539 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 21:58:34.332 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 21:58:34.490 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 159.4517ms
+2026-06-28 21:58:34.521 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 21:58:34.521 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 21:58:34.521 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 21:58:34.521 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 21:58:34.521 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 21:58:34.529 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 7.7026ms
+2026-06-28 21:58:34.546 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 24.9515ms
+2026-06-28 21:58:34.546 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 24.9547ms
+2026-06-28 21:58:34.546 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 24.9558ms
+2026-06-28 21:58:34.547 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 25.8303ms
+2026-06-28 21:58:34.770 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 21:58:34.775 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 21:58:34.785 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 10.3592ms
+2026-06-28 21:58:34.965 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 195.0326ms
+2026-06-28 21:58:43.392 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 59
+2026-06-28 21:58:43.403 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 21:58:43.445 +05:00 [INF] CORS policy execution failed.
+2026-06-28 21:58:43.446 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 21:58:43.450 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:58:43.476 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 21:58:43.717 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 21:58:43.953 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-28 21:58:43.960 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 477.5067ms
+2026-06-28 21:58:43.962 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:58:43.971 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 401 null text/plain; charset=utf-8 579.1839ms
+2026-06-28 21:58:51.328 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 21:58:51.339 +05:00 [INF] CORS policy execution failed.
+2026-06-28 21:58:51.353 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 21:58:51.355 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:58:51.359 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 21:58:51.492 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 21:58:51.752 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 21:58:51.757 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 394.8709ms
+2026-06-28 21:58:51.759 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 21:58:51.761 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 432.9354ms
+2026-06-28 21:59:22.289 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 21:59:22.308 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 21:59:22.316 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 21:59:22.318 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 28.9245ms
+2026-06-28 22:04:06.948 +05:00 [INF] Application is shutting down...
+2026-06-28 22:04:13.237 +05:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:04:13.398 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:04:13.484 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:04:13.487 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:04:13.487 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:04:13.489 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:04:23.950 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:04:24.083 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 134.7134ms
+2026-06-28 22:04:24.122 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:04:24.123 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:04:24.124 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:04:24.124 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:04:24.124 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:04:24.145 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 21.2403ms
+2026-06-28 22:04:24.147 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 23.8275ms
+2026-06-28 22:04:24.147 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 24.3374ms
+2026-06-28 22:04:24.148 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 27.2859ms
+2026-06-28 22:04:24.149 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 25.107ms
+2026-06-28 22:04:24.263 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:04:24.271 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:04:24.280 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 8.2462ms
+2026-06-28 22:04:24.463 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 200.1711ms
+2026-06-28 22:04:33.360 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:04:33.372 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:04:33.374 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:04:33.377 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:04:33.414 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:04:33.440 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:04:33.712 +05:00 [INF] Executed DbCommand (23ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:04:34.595 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:04:34.606 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1158.8659ms
+2026-06-28 22:04:34.609 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:04:34.619 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1259.1395ms
+2026-06-28 22:05:47.278 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:05:47.291 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:05:47.302 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:05:47.304 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 26.1836ms
+2026-06-28 22:07:49.503 +05:00 [INF] Application is shutting down...
+2026-06-28 22:07:56.203 +05:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:07:56.356 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:07:56.428 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:07:56.431 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:07:56.431 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:07:56.432 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:08:07.963 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:08:08.113 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 152.7325ms
+2026-06-28 22:08:08.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:08:08.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:08:08.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:08:08.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:08:08.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:08:08.158 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 11.6084ms
+2026-06-28 22:08:08.195 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 49.2697ms
+2026-06-28 22:08:08.195 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 48.7349ms
+2026-06-28 22:08:08.195 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 49.2588ms
+2026-06-28 22:08:08.196 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 49.6853ms
+2026-06-28 22:08:08.287 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:08:08.292 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:08:08.298 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 6.7278ms
+2026-06-28 22:08:08.465 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 178.1131ms
+2026-06-28 22:08:16.812 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:08:16.823 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:08:16.829 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:08:16.830 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:08:16.870 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:08:16.898 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:08:17.226 +05:00 [INF] Executed DbCommand (23ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:08:18.096 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:08:18.108 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1202.5168ms
+2026-06-28 22:08:18.110 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:08:18.120 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1308.1348ms
+2026-06-28 22:08:46.282 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:08:46.299 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:08:46.308 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:08:46.311 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 28.1888ms
+2026-06-28 22:08:52.714 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/students - null null
+2026-06-28 22:08:52.723 +05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-06-28 22:08:52.728 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:08:52.731 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/students - 401 0 null 16.4845ms
+2026-06-28 22:09:29.748 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/categories - null null
+2026-06-28 22:09:29.755 +05:00 [INF] Executing endpoint 'WebApi.Controllers.CategoriesController.GetAll (WebApi)'
+2026-06-28 22:09:29.773 +05:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi.Controllers.CategoriesController (WebApi).
+2026-06-28 22:09:29.900 +05:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "Categories" AS c
+2026-06-28 22:09:29.904 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Application.DTOs.Category.GetCategoryDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-28 22:09:29.912 +05:00 [INF] Executed action WebApi.Controllers.CategoriesController.GetAll (WebApi) in 135.9599ms
+2026-06-28 22:09:29.916 +05:00 [INF] Executed endpoint 'WebApi.Controllers.CategoriesController.GetAll (WebApi)'
+2026-06-28 22:09:29.919 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/categories - 200 null application/json; charset=utf-8 170.6643ms
+2026-06-28 22:10:28.839 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:10:28.899 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:10:28.902 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:10:28.909 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 69.7562ms
+2026-06-28 22:12:36.065 +05:00 [INF] Application is shutting down...
+2026-06-28 22:12:43.714 +05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:12:43.946 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:12:44.040 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:12:44.043 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:12:44.045 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:12:44.046 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:12:57.897 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:12:57.966 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:12:57.970 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:12:57.972 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:12:58.009 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:12:58.039 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:12:58.377 +05:00 [INF] Executed DbCommand (26ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:12:59.260 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:12:59.275 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1228.5142ms
+2026-06-28 22:12:59.278 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:12:59.289 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1393.0308ms
+2026-06-28 22:13:01.802 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:13:01.977 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 176.3302ms
+2026-06-28 22:13:01.999 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:13:02.000 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:13:02.001 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:13:02.001 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:13:02.002 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:13:02.015 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 15.743ms
+2026-06-28 22:13:02.015 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 14.5143ms
+2026-06-28 22:13:02.040 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 37.9292ms
+2026-06-28 22:13:02.043 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 41.8295ms
+2026-06-28 22:13:02.043 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 40.5684ms
+2026-06-28 22:13:02.147 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:13:02.148 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:13:02.156 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 7.2331ms
+2026-06-28 22:13:02.311 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 163.8717ms
+2026-06-28 22:13:11.328 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:13:11.370 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:13:11.389 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:13:11.400 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:13:11.403 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:13:11.529 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:13:12.042 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:13:12.044 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 637.602ms
+2026-06-28 22:13:12.046 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:13:12.048 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 720.6549ms
+2026-06-28 22:13:33.865 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:13:33.922 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:13:33.931 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:13:33.934 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 69.0734ms
+2026-06-28 22:14:33.607 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/courses - application/json 100
+2026-06-28 22:14:33.644 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:14:33.645 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:14:33.650 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Instructor)
+2026-06-28 22:14:33.653 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:14:33.656 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/courses - 401 0 null 48.945ms
+2026-06-28 22:16:29.002 +05:00 [INF] Application is shutting down...
+2026-06-28 22:16:35.971 +05:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:16:36.142 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:16:36.213 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:16:36.215 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:16:36.216 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:16:36.217 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:19:51.085 +05:00 [INF] Application is shutting down...
+2026-06-28 22:19:57.549 +05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:19:57.732 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:19:57.814 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:19:57.816 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:19:57.818 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:19:57.819 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:20:13.271 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:20:13.419 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 150.5674ms
+2026-06-28 22:20:13.458 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:20:13.458 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:20:13.460 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:20:13.460 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:20:13.461 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:20:13.492 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 34.8312ms
+2026-06-28 22:20:13.492 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 31.8548ms
+2026-06-28 22:20:13.492 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 35.7628ms
+2026-06-28 22:20:13.492 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 31.3003ms
+2026-06-28 22:20:13.505 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 44.6105ms
+2026-06-28 22:20:13.615 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:20:13.620 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:20:13.626 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 5.949ms
+2026-06-28 22:20:13.834 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 219.2201ms
+2026-06-28 22:20:21.876 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:20:21.888 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:20:21.891 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:20:21.893 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:20:21.944 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:20:21.981 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:20:22.280 +05:00 [INF] Executed DbCommand (28ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:20:23.157 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:20:23.171 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1182.4245ms
+2026-06-28 22:20:23.173 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:20:23.183 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1306.8465ms
+2026-06-28 22:20:51.941 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:20:52.015 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:20:52.020 +05:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-06-28 22:20:52.022 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 403 0 null 81.1675ms
+2026-06-28 22:24:07.956 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:24:07.965 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 8.8016ms
+2026-06-28 22:24:08.065 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:24:08.066 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:24:08.071 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:24:08.071 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:24:08.076 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:24:08.079 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 13.3719ms
+2026-06-28 22:24:08.083 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 17.2978ms
+2026-06-28 22:24:08.086 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 14.7749ms
+2026-06-28 22:24:08.105 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 33.1306ms
+2026-06-28 22:24:08.108 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 32.6155ms
+2026-06-28 22:24:21.616 +05:00 [INF] Application is shutting down...
+2026-06-28 22:24:28.265 +05:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:24:28.486 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:24:28.581 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:24:28.584 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:24:28.585 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:24:28.586 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:24:33.650 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/ - null null
+2026-06-28 22:24:33.721 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:24:33.786 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/ - 404 0 null 137.964ms
+2026-06-28 22:24:33.807 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5052/, Response status code: 404
+2026-06-28 22:24:33.853 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/favicon.ico - null null
+2026-06-28 22:24:33.863 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/favicon.ico - 404 0 null 9.9631ms
+2026-06-28 22:24:33.867 +05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5052/favicon.ico, Response status code: 404
+2026-06-28 22:25:26.458 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:25:26.531 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 73.5742ms
+2026-06-28 22:25:26.558 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:25:26.560 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:25:26.561 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:25:26.561 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:25:26.562 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:25:26.603 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 45.098ms
+2026-06-28 22:25:26.603 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 41.834ms
+2026-06-28 22:25:26.603 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 42.048ms
+2026-06-28 22:25:26.603 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 43.8577ms
+2026-06-28 22:25:26.604 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 42.5264ms
+2026-06-28 22:25:26.708 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:25:26.728 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:25:26.733 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 4.2716ms
+2026-06-28 22:25:26.933 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 224.8834ms
+2026-06-28 22:25:39.968 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:25:39.976 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:25:39.991 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:25:40.003 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:25:40.032 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:25:40.306 +05:00 [INF] Executed DbCommand (25ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:25:41.160 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:25:41.171 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1131.5184ms
+2026-06-28 22:25:41.174 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:25:41.184 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1215.8469ms
+2026-06-28 22:46:18.387 +05:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:46:18.710 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:46:18.845 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:46:18.850 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:46:18.854 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:46:18.858 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:47:11.356 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:47:11.543 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 189.446ms
+2026-06-28 22:47:11.583 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:47:11.596 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:47:11.597 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:47:11.597 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:47:11.599 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:47:11.682 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 99.8889ms
+2026-06-28 22:47:11.682 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 84.7202ms
+2026-06-28 22:47:11.682 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 84.9313ms
+2026-06-28 22:47:11.682 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 85.4211ms
+2026-06-28 22:47:11.687 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 88.0453ms
+2026-06-28 22:47:11.898 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:47:12.169 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 270.7378ms
+2026-06-28 22:47:24.913 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:47:24.932 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:47:24.935 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:47:24.937 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:47:24.998 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:47:25.038 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:47:25.402 +05:00 [INF] Executed DbCommand (29ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:47:26.591 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:47:26.608 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1561.0063ms
+2026-06-28 22:47:26.612 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:47:26.627 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 1713.9345ms
+2026-06-28 22:47:57.143 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:47:57.242 +05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-06-28 22:47:57.257 +05:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-06-28 22:47:57.271 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:47:57.288 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:47:57.291 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 148.0618ms
+2026-06-28 22:48:00.941 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:48:00.959 +05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-06-28 22:48:00.980 +05:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-06-28 22:48:00.986 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:48:00.996 +05:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-06-28 22:48:01.003 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 401 0 null 61.8552ms
+2026-06-28 22:49:03.191 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 22:49:03.199 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:49:03.200 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:49:03.204 +05:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenSignatureKeyNotFoundException: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignature(JsonWebToken jwtToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateSignatureAndIssuerSecurityKey(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-06-28 22:49:03.211 +05:00 [INF] Bearer was not authenticated. Failure message: IDX10517: Signature validation failed. The token's kid is missing. Keys tried: 'Microsoft.IdentityModel.Tokens.SymmetricSecurityKey, KeyId: '', InternalId: 'ped2w53gC6sg-BJG1QLBw7XN2QGrQITTcBDHQM1KDyM'. , KeyId: 
+'. Number of keys in TokenValidationParameters: '1'. 
+Number of keys in Configuration: '0'. 
+Exceptions caught:
+ '[PII of type 'System.Text.StringBuilder' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'.
+token: '[PII of type 'Microsoft.IdentityModel.JsonWebTokens.JsonWebToken' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]'. See https://aka.ms/IDX10503 for details.
+2026-06-28 22:49:03.214 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:49:03.219 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:49:03.380 +05:00 [INF] Executed DbCommand (3ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:49:04.076 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:49:04.080 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 854.5981ms
+2026-06-28 22:49:04.085 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 22:49:04.099 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 907.1726ms
+2026-06-28 22:51:19.980 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 22:51:20.072 +05:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-06-28 22:51:20.076 +05:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2026-06-28 22:51:20.078 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 403 0 null 98.6152ms
+2026-06-28 22:53:58.907 +05:00 [INF] Application is shutting down...
+2026-06-28 22:54:16.350 +05:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 22:54:16.647 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 22:54:16.771 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 22:54:16.775 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 22:54:16.777 +05:00 [INF] Hosting environment: Development
+2026-06-28 22:54:16.778 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 22:54:33.398 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 22:54:33.580 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 182.6514ms
+2026-06-28 22:54:33.629 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 22:54:33.631 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 22:54:33.631 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 22:54:33.631 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 22:54:33.638 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 22:54:33.664 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 36.8092ms
+2026-06-28 22:54:33.664 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 33.3114ms
+2026-06-28 22:54:33.664 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 33.2236ms
+2026-06-28 22:54:33.675 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 43.1464ms
+2026-06-28 22:54:33.683 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 44.9701ms
+2026-06-28 22:54:33.832 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 22:54:33.841 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 22:54:33.853 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 11.9218ms
+2026-06-28 22:54:34.094 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 261.5875ms
+2026-06-28 22:55:22.609 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/register - application/json 101
+2026-06-28 22:55:22.650 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 22:55:22.654 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:55:22.657 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:55:22.705 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Register (WebApi)'
+2026-06-28 22:55:22.743 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Application.DTOs.Auth.RegisterDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:55:22.808 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-06-28 22:55:22.818 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Register (WebApi) in 65.1652ms
+2026-06-28 22:55:22.821 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Register (WebApi)'
+2026-06-28 22:55:22.827 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/register - 400 null text/plain; charset=utf-8 217.957ms
+2026-06-28 22:55:36.950 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/register - application/json 102
+2026-06-28 22:55:36.960 +05:00 [INF] CORS policy execution failed.
+2026-06-28 22:55:36.993 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 22:55:37.018 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Register (WebApi)'
+2026-06-28 22:55:37.021 +05:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(Application.DTOs.Auth.RegisterDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 22:55:37.384 +05:00 [INF] Executed DbCommand (30ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 22:55:38.812 +05:00 [INF] Executed DbCommand (19ms) [Parameters=[@p0='?' (DbType = DateTime), @p1='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?', @p6='?', @p7='?' (DbType = DateTime), @p8='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Users" ("CreatedAt", "Email", "FullName", "IsActive", "PasswordHash", "PhoneNumber", "ResetPasswordToken", "ResetPasswordTokenExpiry", "Role")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Id";
+2026-06-28 22:55:38.852 +05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p9='?', @p10='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Students" ("Bio", "UserId")
+VALUES (@p9, @p10)
+RETURNING "Id";
+2026-06-28 22:55:38.939 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 22:55:38.950 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Register (WebApi) in 1924.3619ms
+2026-06-28 22:55:38.953 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Register (WebApi)'
+2026-06-28 22:55:38.966 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/register - 200 null application/json; charset=utf-8 2016.0406ms
+2026-06-28 22:56:13.560 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/students - null null
+2026-06-28 22:56:13.655 +05:00 [INF] Executing endpoint 'WebApi.Controllers.StudentsController.GetAll (WebApi)'
+2026-06-28 22:56:13.676 +05:00 [INF] Route matched with {action = "GetAll", controller = "Students"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi.Controllers.StudentsController (WebApi).
+2026-06-28 22:56:13.826 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."Bio", s."UserId"
+FROM "Students" AS s
+2026-06-28 22:56:13.843 +05:00 [INF] Executed action WebApi.Controllers.StudentsController.GetAll (WebApi) in 163.4785ms
+2026-06-28 22:56:13.846 +05:00 [INF] Executed endpoint 'WebApi.Controllers.StudentsController.GetAll (WebApi)'
+2026-06-28 22:56:13.849 +05:00 [ERR] Unhandled exception
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Application.Services.StudentService.<>c.<GetAllAsync>b__2_0(Student s) in C:\Users\Dell\Desktop\Exam11\Application\Services\StudentService.cs:line 14
+   at System.Linq.Enumerable.ListSelectIterator`2.Fill(ReadOnlySpan`1 source, Span`1 destination, Func`2 func)
+   at System.Linq.Enumerable.ListSelectIterator`2.ToList()
+   at Application.Services.StudentService.GetAllAsync() in C:\Users\Dell\Desktop\Exam11\Application\Services\StudentService.cs:line 14
+   at WebApi.Controllers.StudentsController.GetAll() in C:\Users\Dell\Desktop\Exam11\WebApi\Controllers\StudentsController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at WebApi.MiddleWares.LoggingMiddleWare.InvokeAsync(HttpContext context) in C:\Users\Dell\Desktop\Exam11\WebApi\MiddleWares\LoggingMiddleWare.cs:line 20
+   at WebApi.MiddleWares.ExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\Dell\Desktop\Exam11\WebApi\MiddleWares\ExceptionMiddleware.cs:line 20
+2026-06-28 22:56:13.910 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/students - 500 null null 350.8137ms
+2026-06-28 23:00:56.146 +05:00 [INF] Application is shutting down...
+2026-06-28 23:01:07.209 +05:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 23:01:07.522 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 23:01:07.660 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 23:01:07.665 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 23:01:07.667 +05:00 [INF] Hosting environment: Development
+2026-06-28 23:01:07.669 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 23:01:14.422 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.html - null null
+2026-06-28 23:01:14.623 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.html - 304 null null 203.2442ms
+2026-06-28 23:01:14.656 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - null null
+2026-06-28 23:01:14.659 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.css - null null
+2026-06-28 23:01:14.662 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - null null
+2026-06-28 23:01:14.663 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - null null
+2026-06-28 23:01:14.665 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/index.js - null null
+2026-06-28 23:01:14.689 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.js - 304 null null 23.7448ms
+2026-06-28 23:01:14.692 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/index.css - 304 null null 33.2509ms
+2026-06-28 23:01:14.692 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-standalone-preset.js - 304 null null 29.1678ms
+2026-06-28 23:01:14.692 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui.css - 304 null null 36.9111ms
+2026-06-28 23:01:14.693 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/swagger-ui-bundle.js - 304 null null 31.3409ms
+2026-06-28 23:01:14.841 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - null null
+2026-06-28 23:01:14.841 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - null null
+2026-06-28 23:01:14.853 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/favicon-32x32.png - 304 null null 12.0205ms
+2026-06-28 23:01:15.078 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 236.4502ms
+2026-06-28 23:02:06.005 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 59
+2026-06-28 23:02:06.060 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 23:02:06.065 +05:00 [INF] CORS policy execution failed.
+2026-06-28 23:02:06.068 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 23:02:06.119 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:02:06.156 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 23:02:06.548 +05:00 [INF] Executed DbCommand (35ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 23:02:07.775 +05:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'System.String'.
+2026-06-28 23:02:07.785 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 1619.7984ms
+2026-06-28 23:02:07.789 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:02:07.801 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 401 null text/plain; charset=utf-8 1796.4364ms
+2026-06-28 23:02:15.903 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 23:02:15.915 +05:00 [INF] CORS policy execution failed.
+2026-06-28 23:02:15.932 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 23:02:15.952 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:02:15.958 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 23:02:16.109 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 23:02:16.779 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 23:02:16.788 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 826.6942ms
+2026-06-28 23:02:16.791 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:02:16.794 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 890.2372ms
+2026-06-28 23:03:09.663 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/users - null null
+2026-06-28 23:03:09.753 +05:00 [INF] Executing endpoint 'WebApi.Controllers.UsersController.GetAll (WebApi)'
+2026-06-28 23:03:09.768 +05:00 [INF] Route matched with {action = "GetAll", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApi.Controllers.UsersController (WebApi).
+2026-06-28 23:03:09.796 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role"
+FROM "Users" AS u
+2026-06-28 23:03:09.805 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[GetUserDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-28 23:03:09.826 +05:00 [INF] Executed action WebApi.Controllers.UsersController.GetAll (WebApi) in 53.5236ms
+2026-06-28 23:03:09.831 +05:00 [INF] Executed endpoint 'WebApi.Controllers.UsersController.GetAll (WebApi)'
+2026-06-28 23:03:09.833 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/users - 200 null application/json; charset=utf-8 169.8397ms
+2026-06-28 23:03:55.290 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/enrollments/my - null null
+2026-06-28 23:03:55.322 +05:00 [INF] Executing endpoint 'WebApi.Controllers.EnrollmentsController.GetMy (WebApi)'
+2026-06-28 23:03:55.346 +05:00 [INF] Route matched with {action = "GetMy", controller = "Enrollments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMy() on controller WebApi.Controllers.EnrollmentsController (WebApi).
+2026-06-28 23:03:55.396 +05:00 [INF] Executed DbCommand (10ms) [Parameters=[@studentId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."CompletedAt", e."CourseId", e."EnrolledAt", e."ProgressPercent", e."Status", e."StudentId"
+FROM "Enrollments" AS e
+WHERE e."StudentId" = @studentId
+2026-06-28 23:03:55.403 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Application.DTOs.Enrollment.GetEnrollmentDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-28 23:03:55.414 +05:00 [INF] Executed action WebApi.Controllers.EnrollmentsController.GetMy (WebApi) in 63.2148ms
+2026-06-28 23:03:55.417 +05:00 [INF] Executed endpoint 'WebApi.Controllers.EnrollmentsController.GetMy (WebApi)'
+2026-06-28 23:03:55.419 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/enrollments/my - 200 null application/json; charset=utf-8 129.2583ms
+2026-06-28 23:04:08.417 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/auth/me - null null
+2026-06-28 23:04:08.444 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Me (WebApi)'
+2026-06-28 23:04:08.459 +05:00 [INF] Route matched with {action = "Me", controller = "Auth"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Me() on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 23:04:08.475 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.UserDto'.
+2026-06-28 23:04:08.484 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Me (WebApi) in 20.0446ms
+2026-06-28 23:04:08.489 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Me (WebApi)'
+2026-06-28 23:04:08.497 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/auth/me - 200 null application/json; charset=utf-8 78.7576ms
+2026-06-28 23:11:06.885 +05:00 [INF] Application is shutting down...
+2026-06-28 23:11:15.094 +05:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Users" AS u)
+2026-06-28 23:11:15.219 +05:00 [INF] User profile is available. Using 'C:\Users\Dell\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-06-28 23:11:15.289 +05:00 [INF] Now listening on: http://localhost:5052
+2026-06-28 23:11:15.291 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-06-28 23:11:15.291 +05:00 [INF] Hosting environment: Development
+2026-06-28 23:11:15.292 +05:00 [INF] Content root path: C:\Users\Dell\Desktop\Exam11\WebApi
+2026-06-28 23:13:33.722 +05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5052/api/auth/login - application/json 58
+2026-06-28 23:13:33.755 +05:00 [WRN] Failed to determine the https port for redirect.
+2026-06-28 23:13:33.757 +05:00 [INF] CORS policy execution failed.
+2026-06-28 23:13:33.758 +05:00 [INF] Request origin http://localhost:5052 does not have permission to access the resource.
+2026-06-28 23:13:33.805 +05:00 [INF] Executing endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:13:33.818 +05:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(Application.DTOs.Auth.LoginDto) on controller WebApi.Controllers.AuthController (WebApi).
+2026-06-28 23:13:33.995 +05:00 [INF] Executed DbCommand (14ms) [Parameters=[@email='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u."Id", u."CreatedAt", u."Email", u."FullName", u."IsActive", u."PasswordHash", u."PhoneNumber", u."ResetPasswordToken", u."ResetPasswordTokenExpiry", u."Role", s."Id", s."Bio", s."UserId"
+FROM "Users" AS u
+LEFT JOIN "Students" AS s ON u."Id" = s."UserId"
+WHERE u."Email" = @email
+LIMIT 1
+2026-06-28 23:13:34.499 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.Auth.AuthResponseDto'.
+2026-06-28 23:13:34.508 +05:00 [INF] Executed action WebApi.Controllers.AuthController.Login (WebApi) in 685.4474ms
+2026-06-28 23:13:34.510 +05:00 [INF] Executed endpoint 'WebApi.Controllers.AuthController.Login (WebApi)'
+2026-06-28 23:13:34.515 +05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5052/api/auth/login - 200 null application/json; charset=utf-8 794.5915ms
+2026-06-28 23:14:19.793 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/dashboard/summary - null null
+2026-06-28 23:14:19.806 +05:00 [INF] Executing endpoint 'WebApi.Controllers.DashboardController.GetSummary (WebApi)'
+2026-06-28 23:14:19.813 +05:00 [INF] Route matched with {action = "GetSummary", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetSummary() on controller WebApi.Controllers.DashboardController (WebApi).
+2026-06-28 23:14:22.028 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s."Id", s."Bio", s."UserId"
+FROM "Students" AS s
+2026-06-28 23:14:22.080 +05:00 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."CourseId", c."Title", count(*)::int AS "EnrollmentsCount"
+FROM "Enrollments" AS e
+INNER JOIN "Courses" AS c ON e."CourseId" = c."Id"
+GROUP BY e."CourseId", c."Title"
+ORDER BY count(*)::int DESC
+LIMIT @p
+2026-06-28 23:14:22.088 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Courses" AS c
+2026-06-28 23:14:22.103 +05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum((
+    SELECT count(*)::int
+    FROM "Enrollments" AS e
+    WHERE c."Id" = e."CourseId")), 0)::int
+FROM "Courses" AS c
+2026-06-28 23:14:22.117 +05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(sum(c."Price" * (
+    SELECT count(*)::int
+    FROM "Enrollments" AS e
+    WHERE c."Id" = e."CourseId")::numeric(18,2)), 0.0)
+FROM "Courses" AS c
+WHERE c."IsPublished"
+2026-06-28 23:14:22.137 +05:00 [INF] Executing OkObjectResult, writing value of type 'Application.DTOs.DashboardDto.DashboardSummaryDto'.
+2026-06-28 23:14:22.139 +05:00 [INF] Executed action WebApi.Controllers.DashboardController.GetSummary (WebApi) in 2324.7308ms
+2026-06-28 23:14:22.141 +05:00 [INF] Executed endpoint 'WebApi.Controllers.DashboardController.GetSummary (WebApi)'
+2026-06-28 23:14:22.142 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/dashboard/summary - 200 null application/json; charset=utf-8 2349.5823ms
+2026-06-28 23:14:29.636 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5052/api/dashboard/top-courses - null null
+2026-06-28 23:14:29.644 +05:00 [INF] Executing endpoint 'WebApi.Controllers.DashboardController.GetTopCourses (WebApi)'
+2026-06-28 23:14:29.651 +05:00 [INF] Route matched with {action = "GetTopCourses", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTopCourses() on controller WebApi.Controllers.DashboardController (WebApi).
+2026-06-28 23:14:29.660 +05:00 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."CourseId", c."Title", count(*)::int AS "EnrollmentsCount"
+FROM "Enrollments" AS e
+INNER JOIN "Courses" AS c ON e."CourseId" = c."Id"
+GROUP BY e."CourseId", c."Title"
+ORDER BY count(*)::int DESC
+LIMIT @p
+2026-06-28 23:14:29.663 +05:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Application.DTOs.DashboardDto.TopCourseDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-06-28 23:14:29.664 +05:00 [INF] Executed action WebApi.Controllers.DashboardController.GetTopCourses (WebApi) in 11.5317ms
+2026-06-28 23:14:29.665 +05:00 [INF] Executed endpoint 'WebApi.Controllers.DashboardController.GetTopCourses (WebApi)'
+2026-06-28 23:14:29.666 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5052/api/dashboard/top-courses - 200 null application/json; charset=utf-8 30.3337ms
+2026-06-28 23:19:56.117 +05:00 [INF] Application is shutting down...

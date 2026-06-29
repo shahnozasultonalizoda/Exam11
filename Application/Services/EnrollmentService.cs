@@ -4,10 +4,11 @@ using Application.Interfaces.Services;
 using Application.Results;
 using Domain.Entities;
 using Domain.Enums;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Application.Services;
 
-public class EnrollmentService(IEnrollmentRepository enrollmentRepository, ICourseRepository courseRepository) : IEnrollmentService
+public class EnrollmentService(IEnrollmentRepository enrollmentRepository, ICourseRepository courseRepository, IDistributedCache cache) : IEnrollmentService
 {
     public async Task<Result<GetEnrollmentDto>> EnrollAsync(int studentId, CreateEnrollmentDto dto)
     {
@@ -37,6 +38,9 @@ public class EnrollmentService(IEnrollmentRepository enrollmentRepository, ICour
         };
 
         await enrollmentRepository.CreateAsync(enrollment);
+
+        await cache.RemoveAsync("dashboard:top_courses");
+        await cache.RemoveAsync("dashboard:summary");
 
         return Result<GetEnrollmentDto>.Ok(new GetEnrollmentDto
         {

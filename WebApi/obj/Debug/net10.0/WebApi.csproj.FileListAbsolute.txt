@@ -149,3 +149,6 @@ C:\Users\Dell\Desktop\Exam11\WebApi\obj\Debug\net10.0\refint\WebApi.dll
 C:\Users\Dell\Desktop\Exam11\WebApi\obj\Debug\net10.0\WebApi.pdb
 C:\Users\Dell\Desktop\Exam11\WebApi\obj\Debug\net10.0\WebApi.genruntimeconfig.cache
 C:\Users\Dell\Desktop\Exam11\WebApi\obj\Debug\net10.0\ref\WebApi.dll
+C:\Users\Dell\Desktop\Exam11\WebApi\bin\Debug\net10.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Users\Dell\Desktop\Exam11\WebApi\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\Dell\Desktop\Exam11\WebApi\bin\Debug\net10.0\StackExchange.Redis.dll

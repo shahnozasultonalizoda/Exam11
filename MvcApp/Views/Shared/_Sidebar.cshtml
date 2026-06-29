@@ -1,0 +1,25 @@
+@{
+    var active = ViewData["ActiveMenu"]?.ToString();
+}
+<a href="/Dashboard/Index" class="sidebar-link @(active == "Dashboard" ? "active" : "")">
+    <i class="bi bi-speedometer2"></i> Dashboard
+</a>
+
+<a href="/Categories/Index" class="sidebar-link @(active == "Categories" ? "active" : "")">
+    <i class="bi bi-tag"></i> Categories
+</a>
+<a href="/Courses/Index" class="sidebar-link @(active == "Courses" ? "active" : "")">
+    <i class="bi bi-play-circle"></i> Courses
+</a>
+<a href="/Lessons/Index" class="sidebar-link @(active == "Lessons" ? "active" : "")">
+    <i class="bi bi-book"></i> Lessons
+</a>
+<a href="/Users/Index" class="sidebar-link @(active == "Users" ? "active" : "")">
+    <i class="bi bi-people"></i> Users
+</a>
+<a href="/Enrollments/Index" class="sidebar-link @(active == "Enrollments" ? "active" : "")">
+    <i class="bi bi-journal-check"></i> Enrollments
+</a>
+<a href="/Reviews/Index" class="sidebar-link @(active == "Reviews" ? "active" : "")">
+    <i class="bi bi-star"></i> Reviews
+</a>

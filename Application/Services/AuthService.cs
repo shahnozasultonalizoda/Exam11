@@ -8,7 +8,7 @@ using Domain.Enums;
 
 namespace Application.Services;
 
-public class AuthService(IUserRepository userRepository, IJwtTokenService jwtTokenService) : IAuthService
+public class AuthService(IUserRepository userRepository, IJwtTokenService jwtTokenService , IEmailService emailService) : IAuthService
 {
     public async Task<Result<AuthResponseDto>> RegisterAsync(RegisterDto dto)
     {
@@ -82,19 +82,28 @@ public class AuthService(IUserRepository userRepository, IJwtTokenService jwtTok
         return Result<bool>.Ok(true);
     }
 
-    public async Task<Result<bool>> ForgotPasswordAsync(ForgotPasswordDto dto)
-    {
-        var user = await userRepository.GetByEmailAsync(dto.Email);
-        if (user is null)
-        {
-            return Result<bool>.Ok(true);
-        }
 
-        user.ResetPasswordToken = Guid.NewGuid().ToString("N");
-        user.ResetPasswordTokenExpiry = DateTime.UtcNow.AddMinutes(15);
-        await userRepository.UpdateAsync(user);
+
+    public async Task<Result<bool>> ForgotPasswordAsync(ForgotPasswordDto dto)
+{
+    var user = await userRepository.GetByEmailAsync(dto.Email);
+    if (user is null)
+    {
         return Result<bool>.Ok(true);
     }
+
+    user.ResetPasswordToken = Guid.NewGuid().ToString("N");
+    user.ResetPasswordTokenExpiry = DateTime.UtcNow.AddMinutes(15);
+    await userRepository.UpdateAsync(user);
+
+    await emailService.SendEmailAsync(
+        user.Email,
+        "Reset Password",
+        $"Your reset token: {user.ResetPasswordToken}"
+    );
+
+    return Result<bool>.Ok(true);
+}
 
     public async Task<Result<bool>> ResetPasswordAsync(ResetPasswordDto dto)
     {

@@ -1,4 +1,3 @@
-// WebApi/Controllers/AuthController.cs
 using Application.DTOs.Auth;
 using Application.Interfaces.Services;
 using Application.Results;
@@ -13,7 +12,7 @@ namespace WebApi.Controllers;
 public class AuthController(IAuthService authService) : ControllerBase
 {
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+    public async Task<IActionResult> Register( RegisterDto dto)
     {
         var result = await authService.RegisterAsync(dto);
         if (!result.IsSuccess)
@@ -26,7 +25,7 @@ public class AuthController(IAuthService authService) : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginDto dto)
+    public async Task<IActionResult> Login( LoginDto dto)
     {
         var result = await authService.LoginAsync(dto);
         if (!result.IsSuccess)
@@ -38,7 +37,7 @@ public class AuthController(IAuthService authService) : ControllerBase
 
     [Authorize]
     [HttpPost("change-password")]
-    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
+    public async Task<IActionResult> ChangePassword( ChangePasswordDto dto)
     {
         var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
         var result = await authService.ChangePasswordAsync(userId, dto);
@@ -66,14 +65,14 @@ public class AuthController(IAuthService authService) : ControllerBase
     }
 
     [HttpPost("forgot-password")]
-    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+    public async Task<IActionResult> ForgotPassword( ForgotPasswordDto dto)
     {
         await authService.ForgotPasswordAsync(dto);
         return Ok(new { message = "If email exists, reset token has been sent" });
     }
 
     [HttpPost("reset-password")]
-    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+    public async Task<IActionResult> ResetPassword( ResetPasswordDto dto)
     {
         var result = await authService.ResetPasswordAsync(dto);
         if (!result.IsSuccess)
